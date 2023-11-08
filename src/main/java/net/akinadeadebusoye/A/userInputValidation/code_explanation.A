@@ -1,0 +1,12 @@
+                                              Question A
+A: perform these validations and return true if all validations are passed. If the validation fails, return all the
+fields that failed with a message of which of the validation requirements for each of those fields that fails
+e.g., Email: not empty, Password: not a strong password.
+
+                                           Code Explanation and Observation:
+i. This Java program uses regular expressions to validate the email and password format and checks the age based on
+   the provided date of birth.
+
+ii. This program doesn't involve concurrent or parallel processing, Threads or ExecutorServices was not used explicitly.
+    It's a simple Java program that collects user input and validates it for a user registration form using various
+    validation methods.
