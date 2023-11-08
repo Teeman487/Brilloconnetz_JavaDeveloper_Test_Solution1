@@ -1,6 +1,6 @@
                                          Question B
 B: Perform the validation checks in A for the 4 fields (username, email, password and date of birth) concurrently
-(Note, do not use Threads, or ExecutorServices).
+  (Note, do not use Threads, or ExecutorServices).
 
                                    Code Explanation and Observation
 i. CompletableFuture tasks were used to concurrently perform the four validation checks without using Threads

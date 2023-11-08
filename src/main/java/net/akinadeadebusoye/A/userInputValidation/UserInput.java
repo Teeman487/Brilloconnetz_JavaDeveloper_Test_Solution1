@@ -1,13 +1,11 @@
 package net.akinadeadebusoye.A.userInputValidation;
 
 import java.util.Scanner;
-
-
 public class UserInput {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Collects user input
+        // Collects User inputs
         System.out.print("Username: ");
         String username = scanner.nextLine();
         System.out.print("Email: ");
@@ -17,8 +15,8 @@ public class UserInput {
         System.out.print("Date of Birth (yyyy-MM-dd): ");
         String dob = scanner.nextLine();
 
-        // Validate User input and display results
-        boolean validationPassed = UserValidation.validateUsers(username, email, password, dob); // Validate all User inputs
+        // Validates all User input and display results
+        boolean validationPassed = UserValidation.validateUsers(username, email, password, dob);
 
         if (validationPassed) {
             System.out.println("True: All validations passed.");
@@ -35,7 +33,8 @@ public class UserInput {
             }
 
             if (!UserValidation.isPasswordValid(password)) {
-                System.out.println("Password: not empty, should be a strong password (at least 8 characters, 1 uppercase, 1 special character, 1 number).");
+                System.out.println("Password: not empty, should be a strong password " +
+                        "(at least 8 characters, 1 uppercase, 1 special character, 1 number).");
             }
 
             if (!UserValidation.isDateOfBirthValid(dob)) {

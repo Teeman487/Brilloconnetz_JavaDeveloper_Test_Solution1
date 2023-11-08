@@ -2,8 +2,8 @@ package net.akinadeadebusoye.D.userJWTVerifier;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import net.akinadeadebusoye.C.userJWT.JWTGenerator;
 
-import static net.akinadeadebusoye.C.userJWT.JWTGenerator.generateJWT;
 import static net.akinadeadebusoye.C.userJWT.JWTGenerator.secretKey;
 public class JWTVerifier{
 
@@ -12,7 +12,7 @@ public class JWTVerifier{
         try {
             Claims claims = Jwts.parser()
              // generateJWT fetched from Package C.userJWT.JWTGenerator.generateJWT
-                    .setSigningKey(generateJWT())
+                    .setSigningKey(JWTGenerator.secretKey()) // secretKey generated from
                     .build()
                     .parseClaimsJws(token)
                     .getBody();

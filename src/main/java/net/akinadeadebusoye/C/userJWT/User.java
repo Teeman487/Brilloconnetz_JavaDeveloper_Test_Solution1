@@ -12,8 +12,8 @@ public class User {
     public static void main(String[] args) {
         // Create CompletableFuture tasks for each validation(Val)
        CompletableFuture<Boolean> usernameVal = CompletableFuture.supplyAsync(() -> isUsernameValid("Toheeb123"));
-       CompletableFuture<Boolean> emailVal = CompletableFuture.supplyAsync(() -> isEmailValid("akinadetoheeb@.com"));
-       CompletableFuture<Boolean> passwordVal = CompletableFuture.supplyAsync(() -> isPasswordValid("P"));
+       CompletableFuture<Boolean> emailVal = CompletableFuture.supplyAsync(() -> isEmailValid("akinadetoheeb@gmail.com"));
+       CompletableFuture<Boolean> passwordVal = CompletableFuture.supplyAsync(() -> isPasswordValid("P@ssw0rd"));
        CompletableFuture<Boolean> dobVal = CompletableFuture.supplyAsync(() -> isDateOfBirthValid("1995-09-24"));
 
         // Wait for all tasks to complete and get their results

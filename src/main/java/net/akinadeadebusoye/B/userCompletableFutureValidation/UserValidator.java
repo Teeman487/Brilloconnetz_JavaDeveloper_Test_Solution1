@@ -29,6 +29,7 @@ public class UserValidator {
     public static boolean isPasswordValid(String password)
     {
         if (password.isEmpty()) return false;
+
             // Strong password regex: at least 8 characters, 1 uppercase, 1 special character, 1 number
         else {
             String passwordRegex = "^(?=.*[A-Z])(?=.*[!@#\\$%^&*])(?=.*[0-9]).{8,}$";

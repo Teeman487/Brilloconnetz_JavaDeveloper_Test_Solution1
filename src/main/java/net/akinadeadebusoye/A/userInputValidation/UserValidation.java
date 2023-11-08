@@ -42,12 +42,13 @@ public class UserValidation {
     public static boolean isDateOfBirthValid(String dob) {
         if (dob.isEmpty()) return false;
         else {
+
             // Date of Birth Exception for the wrong Input
             try {
                 // User dateOfBirth follows pattern "yyyy-MM-dd"
                 LocalDate userDob = LocalDate.parse(dob, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-                // Y2023-16(Years ago) = Y2007 ; Y2007 is 16 years ago
+                // Year_2023 - 16(Years ago) = Y2007 ; Y2007 is 16 years ago
                 LocalDate sixteenYearsAgo = LocalDate.now().minusYears(16);
 
                 //  Checks if the User's dateOfBirth is at least 16 years of age?
@@ -59,7 +60,7 @@ public class UserValidation {
     }
 
     // Validate all User inputs
-    // If all these conditions are meant, refer to 'validationPassed' in UserInput
+    // If all these conditions are meant, refer to 'validationPassed' in UserInput Class
     public static boolean validateUsers(String username, String email, String password, String dob) {
         return isUsernameValid(username) && isEmailValid(email) && isPasswordValid(password) && isDateOfBirthValid(dob);
     }

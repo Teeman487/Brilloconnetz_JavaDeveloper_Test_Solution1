@@ -1,7 +1,12 @@
-                                     Question
+                                          Question E
+
 E: Write a JUnit Test case for D to check to test a valid and invalid token.
 
-                                   Code Explanation
-i. The verifyJWT method uses the Jwts.parserBuilder() to create a JWT parser with the secret key used for signing the JWT.
-It then attempts to parse and verify the token. If the verification is successful, it returns "verification pass.
-" If the verification fails due to an exception (e.g., token expired or signature mismatch), it returns "verification fails.
+                                   Code Explanation and Observation
+i. To create JUnit test cases for verifying valid and invalid tokens, JUnit library was added to the project
+   dependencies for running the test.
+
+ii. In the Java program, we have created two test methods: testValidJWT and testInvalidJWT. The first test generates a
+    valid JWT token, verifies it, and asserts that the verification result should be "verification pass." The second
+    test uses an intentionally invalid token and asserts that the verification result should be "verification fails."
+
