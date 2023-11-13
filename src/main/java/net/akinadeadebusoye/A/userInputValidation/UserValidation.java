@@ -18,10 +18,11 @@ public class UserValidation {
         if (email.isEmpty()) return false;
         else
         {
-            String emailRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
-            Pattern pattern = Pattern.compile(emailRegex);
+            String emailRegex = "^[A-Za-z0-9+_.-]+@(.+)$"; // Regex is a set of rules or patterns that we use to check if a given text looks like a valid email address.
+            Pattern pattern = Pattern.compile(emailRegex); // Pattern & Matcher classes are part of the 'java.util.regex' package and are used for working with regular expression
+            // Pattern class is used to compile the regular expression pattern for email validation, and the Matcher class is used to match the input email address against the pattern
             Matcher matcher = pattern.matcher(email);  // 'email' follows a validated email pattern
-            return matcher.matches();
+            return matcher.matches();  // returning the input email address against the regular expression pattern for email validation
         }
     }
 
@@ -34,7 +35,7 @@ public class UserValidation {
             String passwordRegex = "^(?=.*[A-Z])(?=.*[!@#\\$%^&*])(?=.*[0-9]).{8,}$";
             Pattern pattern = Pattern.compile(passwordRegex);
             Matcher matcher = pattern.matcher(password);
-            return matcher.matches();
+            return matcher.matches(); // returning the input password address against the regular expression pattern for password validation
         }
     }
 
@@ -52,7 +53,7 @@ public class UserValidation {
                 LocalDate sixteenYearsAgo = LocalDate.now().minusYears(16);
 
                 //  Checks if the User's dateOfBirth is at least 16 years of age?
-                return userDob.isBefore(sixteenYearsAgo);
+                return userDob.isBefore(sixteenYearsAgo); // is b4 2008
             } catch (Exception e) {
                 return false;
             }
@@ -61,7 +62,8 @@ public class UserValidation {
 
     // Validate all User inputs
     // If all these conditions are meant, refer to 'validationPassed' in UserInput Class
-    public static boolean validateUsers(String username, String email, String password, String dob) {
+    public static boolean validateUsers(String username, String email, String password, String dob)
+    {
         return isUsernameValid(username) && isEmailValid(email) && isPasswordValid(password) && isDateOfBirthValid(dob);
     }
 }

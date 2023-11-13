@@ -3,7 +3,8 @@ package net.akinadeadebusoye.A.userInputValidation;
 import java.util.Scanner;
 public class UserInput {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);// Java application can read input from the console using classes like Scanner or by
+        // reading from Standard input stream(System.in). This allows users to providdetext based input to java program
 
         // Collects User inputs
         System.out.print("Username: ");

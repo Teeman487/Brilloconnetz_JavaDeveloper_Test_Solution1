@@ -18,11 +18,11 @@ public class User {
 
         // Wait for all tasks to complete and get their results
         CompletableFuture<Void> allOf = CompletableFuture.allOf(usernameVal, emailVal, passwordVal, dobVal);
-//method
-//   to generate a signed JWT and return it.
+
+        //   to generate a signed JWT and return it.
         try
         {
-          // Wait for all tasks to complete
+          // Wait for all tasks(validation) to complete
             allOf.get();
 
             // Check if any of the validations failed
@@ -35,20 +35,11 @@ public class User {
             else {
                 System.out.println("Validations failed. JWT not generated.");
             }
+        } catch (ExecutionException  | InterruptedException e) {
+            throw new RuntimeException(e);
         }
-        catch (InterruptedException | ExecutionException e)
-        {
-            e.printStackTrace();
-        }
+
+
     }
 }
-/*public class VerifyJWT {
-    public static void main(String[] args) {
-        String jwt = generateJWT();
-        System.out.println("Generated JWT: " + jwt);
 
-        String verificationResult = verifyJWT(jwt);
-        System.out.println("Verification Result: " + verificationResult);
-    }
-
-}*/

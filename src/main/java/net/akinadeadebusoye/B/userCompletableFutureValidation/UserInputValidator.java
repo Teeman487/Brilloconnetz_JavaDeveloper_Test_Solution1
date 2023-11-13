@@ -5,10 +5,15 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 import static net.akinadeadebusoye.B.userCompletableFutureValidation.UserValidator.*;
-
+/*CompletableFuture tasks were used to concurrently perform the four validation checks without using Threads
+   or ExecutorServices. The 'allOf task' waits for all validation tasks to complete, and then the results are checked to
+   determine if any of the validations failed.This allows the validations to be performed concurrently without using
+   threads or ExecutorServices.*/
 public class UserInputValidator {
     public static void main(String[] args) {
-        // Create CompletableFuture tasks for each validation
+        // Create CompletableFuture tasks for each validation ; Functional Interface
+        //CompletableFuture is Interface with a Generic form =  CompletableFuture is a class that implements CompletableFuture,
+        // supplyAsync is a method in class CompletableFuture
         CompletableFuture<Boolean> usernameValidation = CompletableFuture.supplyAsync(() -> isUsernameValid("Toheeb123"));
         CompletableFuture<Boolean> emailValidation = CompletableFuture.supplyAsync(() -> isEmailValid("akinadetoheeb@gmail.com"));
         CompletableFuture<Boolean> passwordValidation = CompletableFuture.supplyAsync(() -> isPasswordValid("P@ssw0rd"));
@@ -16,10 +21,11 @@ public class UserInputValidator {
 
         //supporting dependent functions and actions that trigger upon its completion
         // Wait for all tasks to complete and get their results
-        CompletableFuture<Void> allTask = CompletableFuture.allOf(usernameValidation, emailValidation, passwordValidation, dobValidation);
+        CompletableFuture<Void> allTask = CompletableFuture.allOf(usernameValidation, emailValidation,
+                passwordValidation, dobValidation);
 
         try {
-            allTask.get(); // Wait for all tasks to complete
+            allTask.get(); // Wait for all tasks(validation) to complete
 
             // Check if any of the validations failed
             if (usernameValidation.join() && emailValidation.join() && passwordValidation.join() && dobValidation.join()) {

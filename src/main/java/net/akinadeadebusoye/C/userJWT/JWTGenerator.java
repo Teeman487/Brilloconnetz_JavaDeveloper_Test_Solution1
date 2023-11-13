@@ -3,12 +3,12 @@ package net.akinadeadebusoye.C.userJWT;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
 
-public class JWTGenerator {
+public class
+JWTGenerator {
     // Define a secret key for JWT signing
 
      static final Key secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
